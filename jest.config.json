@@ -1,0 +1,47 @@
+{
+  "name": "my-portfolio",
+  "verbose": true,
+  "setupFilesAfterEnv": ["./node_modules/jest-enzyme/lib/index.js"],
+  "testEnvironment": "enzyme",
+  "snapshotSerializers": [
+    "enzyme-to-json/serializer"
+  ],
+  "setupFiles": ["./test/helpers.js"],
+  "moduleNameMapper": {
+    "\\.(css|scss)$": "identity-obj-proxy",
+    "\\.(svg|png)$": "<rootDir>/test/fileTransformer.js"
+  },
+  "globals": {
+    "NODE_ENV": "test"
+  },
+  "transform": {
+    "^.+\\.jsx?$": "babel-jest"
+  },
+  "collectCoverageFrom": [
+    "src/**/*.{js,jsx}"
+  ],
+  "coverageReporters": [
+    "json-summary", 
+    "text",
+    "lcov"
+  ],
+  "coveragePathIgnorePatterns": [
+    "/node_modules/",
+    "/dist/",
+    "/public/",
+    "/src/config/",
+    "/src/client/config/",
+    "/src/client/constants",
+    "/src/client/styles/"
+  ],
+  "coverageDirectory": "coverage",
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "/dist/",
+    "/public/",
+    "/src/config/",
+    "/src/client/config/",
+    "/src/client/constants",
+    "/src/client/styles/"
+  ]
+}
