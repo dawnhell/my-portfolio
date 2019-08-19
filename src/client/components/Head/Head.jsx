@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 
 const Head = () => (
   <Helmet>
-    <title>Test environment</title>
+    <title>Test sddenvironment</title>
   </Helmet>
 )
 

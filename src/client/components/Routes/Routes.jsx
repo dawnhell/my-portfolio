@@ -1,19 +1,17 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+
+import Home from '../Home/Home'
 import routePaths from '../../constants/routes'
-import RouteTransitions from '../RouteTransitions/RouteTransitions'
-import Todos from '../Todos/Todos'
 
 const Routes = () => (
-  <div>
-    {/*<RouteTransitions>*/}
+  <Router>
       <Route
         exact
         path={routePaths.root.path}
-        component={Todos}
+        component={Home}
       />
-    {/*</RouteTransitions>*/}
-  </div>
+  </Router>
 )
 
 export default Routes

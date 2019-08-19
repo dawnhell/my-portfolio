@@ -51,7 +51,12 @@ export const development = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
-  ]
+  ],
+  devServer: {
+    contentBase: config.paths.dist,
+    compress: true,
+    port: 9000
+  }
 }
 
 export const production = {

@@ -1,26 +1,25 @@
-import {
-  createStore,
-  applyMiddleware,
-  compose
-} from 'redux'
-import thunk from 'redux-thunk'
-import multi from 'redux-multi'
-import promise from 'redux-promise'
-import { composeWithDevTools } from 'redux-devtools-extension'
-import { connectRouter, routerMiddleware } from 'connected-react-router'
-import rootReducer from '../reducers'
-import history from './history'
+import 'regenerator-runtime/runtime'
+import { createStore, applyMiddleware } from 'redux'
+import reducers from '../reducers'
+import sagas from '../sagas'
+import createSagaMiddleware from 'redux-saga'
+import { createLogger } from 'redux-logger'
 
-const middlewares = applyMiddleware(
-  routerMiddleware(history),
-  thunk,
-  multi,
-  promise
-)
+
+const middlewares = [];
+const sagaMiddleware = createSagaMiddleware(sagas);
+middlewares.push(sagaMiddleware);
+
+if (process.env.ENV === 'development') {
+  const loggerMiddleware = createLogger();
+  middlewares.push(loggerMiddleware);
+}
 
 const store = createStore(
-  connectRouter(history)(rootReducer),
-  compose(process.env.ENV === 'development' ? composeWithDevTools(middlewares) : middlewares)
-)
+  reducers,
+  applyMiddleware(...middlewares)
+);
+
+sagaMiddleware.run(sagas);
 
 export default store

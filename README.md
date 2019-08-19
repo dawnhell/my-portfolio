@@ -9,7 +9,6 @@
 
 #### Stack
 - Node
-- Serverless (AWS Lambda + API Gateway + S3)
 - Webpack
 - ES6 (Babel)
 - React
@@ -17,7 +16,6 @@
 - Redux / Redux Form
 - PostCSS / SASS
 - Material UI
-- Jest / Enzyme / Chai
 
 #### Initialization
 ```bash

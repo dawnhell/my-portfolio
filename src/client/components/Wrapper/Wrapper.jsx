@@ -13,7 +13,7 @@ const Wrapper = (props) => {
   )
 }
 
-Wrapper.defaultProps = {
+/*Wrapper.defaultProps = {
   children: null
 }
 
@@ -23,6 +23,6 @@ Wrapper.propTypes = {
     PropTypes.node,
     PropTypes.string
   ])
-}
+}*/
 
 export default Wrapper
