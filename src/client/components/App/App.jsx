@@ -1,17 +1,8 @@
 import React from 'react'
-import Home from '../Home/Home';
 
 import Wrapper from '../Wrapper/Wrapper'
 import Routes from '../Routes/Routes'
 
-const App = () => (
-  <div>
-    <Home/>
-
-    {/*<Wrapper>*/}
-      {/*{Routes}*/}
-    {/*</Wrapper>*/}
-  </div>
-)
+const App = () => <Wrapper>{Routes}</Wrapper>
 
 export default App

@@ -6,8 +6,7 @@
   "scripts": {
     "postinstall": "if [ $NPM_CONFIG_PRODUCTION ]; then yarn run build; fi",
     "dev": "yarn run build && nodemon src/server/server.js --exec babel-node",
-    "test:coverage": "yarn test -- --coverage",
-    "lint": "eslint src/**/*.{js,jsx}",
+    "lint": "prettier --config .prettierrc --check 'src/**/*.{js,jsx}'",
     "build": "yarn run build:clean && yarn run build:client && yarn run build:server",
     "build:destroy": "rm -rf dist",
     "build:clean": "yarn run build:destroy && mkdir dist",
@@ -86,14 +85,8 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "babel-eslint": "10.0.2",
-    "eslint": "6.1.0",
-    "eslint-config-airbnb": "18.0.1",
-    "eslint-plugin-babel": "5.3.0",
-    "eslint-plugin-import": "2.18.2",
-    "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-react": "7.14.3",
     "nodemon": "^1.19.1",
+    "prettier": "1.18.2",
     "webpack-dev-middleware": "^3.7.0",
     "webpack-hot-middleware": "^2.25.0"
   }
