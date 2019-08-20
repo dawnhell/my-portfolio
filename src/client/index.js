@@ -3,6 +3,6 @@ import { render } from 'react-dom'
 
 import App from './components/App/App'
 
-import './styles/theme/global.scss'
+import './styles/main.scss'
 
 render(<App />, document.getElementById('app'))

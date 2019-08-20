@@ -1,5 +1,6 @@
 import path from 'path'
 import merge from 'webpack-merge'
+
 import envConfig from './environments'
 
 const root = path.join(__dirname, '../../')
@@ -14,6 +15,6 @@ export default merge(config, {
     server: `${root}src/server`,
     public: `${root}public`,
     dist: `${root}dist`,
-    assets: `${root}dist/assets`
-  }
+    assets: `${root}dist/assets`,
+  },
 })

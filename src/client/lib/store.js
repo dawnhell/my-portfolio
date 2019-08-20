@@ -1,25 +1,23 @@
 import 'regenerator-runtime/runtime'
 import { createStore, applyMiddleware } from 'redux'
-import reducers from '../reducers'
-import sagas from '../sagas'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import createSagaMiddleware from 'redux-saga'
 import { createLogger } from 'redux-logger'
 
+import config from '../config'
+import reducers from '../reducers'
+import sagas from '../sagas'
 
-const middlewares = [];
-const sagaMiddleware = createSagaMiddleware(sagas);
-middlewares.push(sagaMiddleware);
-
-if (process.env.ENV === 'development') {
-  const loggerMiddleware = createLogger();
-  middlewares.push(loggerMiddleware);
-}
+const sagaMiddleware = createSagaMiddleware(sagas)
+const loggerMiddleware = createLogger()
 
 const store = createStore(
   reducers,
-  applyMiddleware(...middlewares)
-);
+  config.env === 'development'
+    ? composeWithDevTools(applyMiddleware(sagaMiddleware, loggerMiddleware))
+    : applyMiddleware(sagaMiddleware)
+)
 
-sagaMiddleware.run(sagas);
+sagaMiddleware.run(sagas)
 
 export default store

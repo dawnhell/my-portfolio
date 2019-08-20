@@ -3,26 +3,18 @@ import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 import store from '../../lib/store'
 
-const Wrapper = (props) => {
+const Wrapper = props => {
   const { children } = props
 
-  return (
-    <Provider store={store}>
-      {children}
-    </Provider>
-  )
-}
-
-Wrapper.defaultProps = {
-  children: null
+  return <Provider store={store}>{children}</Provider>
 }
 
 Wrapper.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.node,
-    PropTypes.string
-  ])
+    PropTypes.string,
+  ]),
 }
 
 export default Wrapper

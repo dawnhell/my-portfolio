@@ -3,6 +3,7 @@ import express from 'express'
 import helmet from 'helmet'
 import bodyParser from 'body-parser'
 import morgan from 'morgan'
+
 import config from './config'
 import logger from './lib/logger'
 
@@ -29,22 +30,26 @@ if (config.env.match(/development|test/)) {
       timings: true,
       chunks: false,
       chunkModules: false,
-      modules: false
-    }
+      modules: false,
+    },
   })
 
   app.use(middleware)
-  app.use(webpackHotMiddleware(compiler, {
-    publicPath: webpackConfig.output.publicPath,
-    reload: true
-  }))
+  app.use(
+    webpackHotMiddleware(compiler, {
+      publicPath: webpackConfig.output.publicPath,
+      reload: true,
+    })
+  )
   app.use(express.static(config.paths.public))
 
   app.get('/*', (req, res) => {
     res.set('content-type', 'text/html')
 
     try {
-      res.write(middleware.fileSystem.readFileSync(`${config.paths.dist}/index.html`))
+      res.write(
+        middleware.fileSystem.readFileSync(`${config.paths.dist}/index.html`)
+      )
     } catch (err) {
       logger.error(err)
     }

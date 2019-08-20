@@ -4,13 +4,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from '../Home/Home'
 import routePaths from '../../constants/routes'
 
-const Routes = () => (
+const Routes = (
   <Router>
-      <Route
-        exact
-        path={routePaths.root.path}
-        component={Home}
-      />
+    <Route exact path={routePaths.root.path} component={Home} />
   </Router>
 )
 

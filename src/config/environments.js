@@ -1,14 +1,14 @@
 export default {
   development: {
-    cdnUrl: '/assets/'
+    cdnUrl: '/assets/',
   },
   test: {
-    cdnUrl: '/assets/'
+    cdnUrl: '/assets/',
   },
   stage: {
-    cdnUrl: '/assets/'
+    cdnUrl: '/assets/',
   },
   production: {
-    cdnUrl: 'https://s3.amazonaws.com/my-portfolio-assets-production/assets/'
-  }
+    cdnUrl: 'https://s3.amazonaws.com/my-portfolio-assets-production/assets/',
+  },
 }
