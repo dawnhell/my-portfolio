@@ -3,6 +3,6 @@ import { render } from 'react-dom'
 
 import App from './components/App/App'
 
-import './styles/main.scss'
+import 'normalize.css'
 
 render(<App />, document.getElementById('app'))
