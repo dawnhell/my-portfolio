@@ -1,15 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@material-ui/core/styles'
-import Box from '@material-ui/core/Box'
+import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
+import Box from '@material-ui/core/Box'
+import SideNav from '../SideNav/SideNav'
 
 const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
+  root: {
+    flexGrow: 1,
   },
-  input: {
-    display: 'none',
+  paper: {
+    background: theme.palette.primary.light,
+    padding: theme.spacing(5),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
   },
 }))
 
@@ -17,32 +22,16 @@ const Home = ({}) => {
   const classes = useStyles()
 
   return (
-    <Box>
-      <Button variant="contained" className={classes.button}>
-        Default
-      </Button>
-      <Button variant="contained" color="primary" className={classes.button}>
-        Primary
-      </Button>
-      <Button variant="contained" color="secondary" className={classes.button}>
-        Secondary
-      </Button>
-      <Button
-        variant="contained"
-        color="secondary"
-        disabled
-        className={classes.button}
-      >
-        Disabled
-      </Button>
-      <Button
-        variant="contained"
-        href="#contained-buttons"
-        className={classes.button}
-      >
-        Link
-      </Button>
-    </Box>
+    <Grid container>
+      <Grid item xs={2}>
+        <SideNav />
+      </Grid>
+      <Grid item xs={10}>
+        <Box className={classes.paper}>
+          <Button variant="contained" color="primary">Toggle</Button>
+        </Box>
+      </Grid>
+    </Grid>
   )
 }
 
