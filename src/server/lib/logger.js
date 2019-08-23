@@ -6,10 +6,10 @@ const logger = createLogger({
   transports: [
     new winston.transports.Console({
       level,
-      timestamp: () => (new Date()).toISOString()
-    })
+      timestamp: () => new Date().toISOString(),
+    }),
   ],
-  exitOnError: false
-});
+  exitOnError: false,
+})
 
-export default logger;
+export default logger

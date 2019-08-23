@@ -2,27 +2,23 @@ import { merge } from 'lodash'
 
 const development = {
   api: {
-    baseURL: 'https://jsonplaceholder.typicode.com'
-  }
+    baseURL: 'https://jsonplaceholder.typicode.com',
+  },
 }
 
-const test = merge({}, development, {
-
-})
+const test = merge({}, development, {})
 
 const production = {
   api: {
-    baseURL: ''
-  }
+    baseURL: '',
+  },
 }
 
-const stage = merge({}, production, {
-
-})
+const stage = merge({}, production, {})
 
 export default {
   development,
   test,
   production,
-  stage
+  stage,
 }

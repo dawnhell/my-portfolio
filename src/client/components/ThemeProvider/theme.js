@@ -8,11 +8,33 @@ import {
   indigo,
 } from '@material-ui/core/colors'
 
+/* [TODO] place each theme in a separate folder, then import them in the index file and merge together */
+
 const THEME = createMuiTheme({
+  props: {
+    MuiButtonBase: {
+      disableRipple: true,
+    },
+  },
+  transitions: {
+    create: () => 'none',
+  },
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        '*, *::before, *::after': {
+          transition: 'none !important',
+          animation: 'none !important',
+        },
+      },
+    },
+  },
   palette: {
+    primaryColor1: orange[400],
     primary: {
       main: indigo[900],
       contrastText: lime[100],
+      dark: lime[100],
     },
     secondary: {
       main: lime[100],
@@ -25,6 +47,7 @@ const THEME = createMuiTheme({
     pink: pink[400],
     yellow: yellow[500],
     eggshell: lime[100],
+    oldLace: '#FFF5E1',
     orange: orange[400],
   },
   typography: {

@@ -1,45 +1,45 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { NavLink } from 'react-router-dom'
+
 import { makeStyles } from '@material-ui/core/styles'
 import Box from '@material-ui/core/Box'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
 
 import ROUTES from '../../constants/routes'
 
 const useStyles = makeStyles(theme => ({
   sideNav: {
-    display: 'flex',
-    justifyContent: 'center',
     alignItems: 'center',
+    display: 'flex',
     height: '100vh',
+    justifyContent: 'center',
 
-    '& $listItem > $listItemText': {
+    '& $listItem': {
+      transition: 'transform .4s, box-shadow .4s',
       transform: 'rotate(-35deg)',
-      transition: 'transform .5s',
       transformOrigin: 'bottom left',
     },
 
-    '&:hover $listItem > $listItemText': {
+    '&:hover $listItem': {
       transform: 'rotate(0)',
     },
   },
   listItem: {
-    width: '100%',
-    textAlign: 'center',
-    transition: 'box-shadow .5s',
-
-    '&:hover': {
-      background: 'transparent',
-      boxShadow: `inset 0 -2em 0 ${theme.palette.eggshell}`,
-    },
-  },
-  listItemText: {
+    display: 'block',
     color: theme.palette.text.primary,
     fontFamily: "'Fjalla One', sans-serif",
-    fontSize: 24,
+    fontSize: '1.7rem',
+    margin: '0.75rem 0',
+    textAlign: 'center',
+    textDecoration: 'none',
     textTransform: 'uppercase',
+    transition: 'transform .4s, box-shadow .4s',
+    width: '100%',
+
+    '&:hover, &.active': {
+      background: 'transparent',
+      boxShadow: `inset 0 -1.4rem 0 ${theme.palette.yellow}`,
+    },
   },
 }))
 
@@ -48,17 +48,28 @@ const SideNav = ({}) => {
 
   return (
     <Box className={classes.sideNav}>
-      <List>
+      <nav>
         {ROUTES.pages.map(page => (
-          <ListItem button key={page.title} className={classes.listItem}>
-            <ListItemText primary={page.title} className={classes.listItemText} disableTypography />
-          </ListItem>
+          <NavLink
+            key={page.title}
+            to={page.path}
+            className={classes.listItem}
+            activeClassName="active"
+          >
+            {page.title}
+          </NavLink>
         ))}
-      </List>
+      </nav>
     </Box>
   )
 }
 
-SideNav.propTypes = {}
+SideNav.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.node,
+    PropTypes.string,
+  ]),
+}
 
 export default SideNav

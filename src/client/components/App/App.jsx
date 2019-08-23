@@ -1,8 +1,13 @@
 import React from 'react'
 
 import Wrapper from '../Wrapper/Wrapper'
-import Routes from '../Routes/Routes'
 
-const App = () => <Wrapper>{Routes}</Wrapper>
+import StoreProvider from '../StoreProvider/StoreProvider'
+
+const App = () => (
+  <StoreProvider>
+    <Wrapper />
+  </StoreProvider>
+)
 
 export default App

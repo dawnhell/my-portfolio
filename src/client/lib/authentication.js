@@ -1,6 +1,6 @@
 import api from './api'
 
-export const setAccessToken = (token) => {
+export const setAccessToken = token => {
   if (token) {
     api.defaults.headers.common.Authorization = token
     localStorage.setItem('accessToken', token)

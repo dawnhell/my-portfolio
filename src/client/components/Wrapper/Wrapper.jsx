@@ -1,26 +1,36 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Provider } from 'react-redux'
+import { BrowserRouter as Router, Redirect } from 'react-router-dom'
 
-import ThemeProvider from '../ThemeProvider/ThemeProvider'
-import store from '../../lib/store'
+import { makeStyles } from '@material-ui/core/styles'
+import Grid from '@material-ui/core/Grid'
 
-const Wrapper = props => {
-  const { children } = props
+import SideNav from '../SideNav/SideNav'
+import Routes from '../Routes/Routes'
+
+const useStyles = makeStyles(theme => ({
+  content: {
+    backgroundColor: theme.palette.oldLace,
+  },
+}))
+
+const Wrapper = () => {
+  const classes = useStyles()
 
   return (
-    <Provider store={store}>
-      <ThemeProvider>{children}</ThemeProvider>
-    </Provider>
-  )
-}
+    <Router>
+      <Grid container className={classes.content}>
+        <Grid item xs={2}>
+          <SideNav />
+        </Grid>
 
-Wrapper.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.node,
-    PropTypes.string,
-  ]),
+        <Grid item xs={10}>
+          {Routes}
+
+          <Redirect to="/home" />
+        </Grid>
+      </Grid>
+    </Router>
+  )
 }
 
 export default Wrapper
