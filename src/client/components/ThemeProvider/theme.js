@@ -47,8 +47,9 @@ const THEME = createMuiTheme({
     pink: pink[400],
     yellow: yellow[500],
     eggshell: lime[100],
-    oldLace: '#FFF5E1',
+    oldLace: 'rgba(255, 245, 225, 0.8)',
     orange: orange[400],
+    blue: 'rgba(3, 3, 79, 0.8)',
   },
   typography: {
     fontFamily: [

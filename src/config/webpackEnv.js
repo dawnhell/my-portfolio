@@ -3,6 +3,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
+import CopyPlugin from 'copy-webpack-plugin'
 
 import config from './index'
 
@@ -52,6 +53,7 @@ export const development = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    // new CopyPlugin([{ from: 'src/client/assets', to: 'assets' }]),
   ],
   devServer: {
     contentBase: config.paths.dist,
@@ -138,5 +140,6 @@ export const production = {
     new MiniCssExtractPlugin({
       filename: '[name].[hash].css',
     }),
+    // new CopyPlugin([{ from: 'src/client/assets', to: 'assets' }]),
   ],
 }
