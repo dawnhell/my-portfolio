@@ -32,6 +32,9 @@ const useStyles = makeStyles(theme => ({
   content: {
     backgroundColor: theme.palette.blue,
   },
+  leftSide: {
+    zIndex: 2,
+  },
 }))
 
 const Wrapper = () => {
@@ -41,7 +44,7 @@ const Wrapper = () => {
     <Router>
       <Box className={classes.contentWrapper}>
         <Grid container className={classes.content}>
-          <Grid item xs={2}>
+          <Grid item xs={2} className={classes.leftSide}>
             <SideNav />
           </Grid>
 

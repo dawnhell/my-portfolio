@@ -52,7 +52,7 @@ const useStyles = makeStyles(theme => ({
     width: '227px',
     height: '250px',
     backgroundImage: `url(${CYBER_LAPTOP})`,
-    filter: 'drop-shadow(5px 5px 16px black)',
+    filter: 'drop-shadow(5px 16px 16px black)',
   },
 
   animatedCoding: {
