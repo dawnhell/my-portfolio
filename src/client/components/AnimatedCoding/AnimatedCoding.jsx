@@ -3,82 +3,73 @@ import { useSpring, animated } from 'react-spring'
 
 import { makeStyles } from '@material-ui/core'
 
-import COMPUTER_ICON from '../../assets/computer.svg'
-import DEVELOPER_ICON from '../../assets/developer.svg'
-import SUN_ICON from '../../assets/sun.svg'
-import ISLAND_ICON from '../../assets/island.svg'
-import PROGRAMMER_ICON from '../../assets/programmer.svg'
-import CLOUDS_ICON from '../../assets/clouds.svg'
+import CYBER_PLATFORM from '../../assets/platform.png'
+import CYBER_PERSON from '../../assets/person.png'
+import CYBER_LAPTOP from '../../assets/laptop.png'
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
-const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
-const trans2 = (x, y) => `translate3d(${x / 8 + 35}px,${y / 8 - 230}px,0)`
-const trans3 = (x, y) => `translate3d(${x / 6 - 250}px,${y / 6 - 200}px,0)`
-const trans4 = (x, y) => `translate3d(${x / 3.5}px,${y / 3.5}px,0)`
+const platformTransition = (x, y) =>
+  `translate3d(${x / 30 - 530}px, ${y / 24 - 250}px, 0)`
+const programmerTransition = (x, y) =>
+  `translate3d(${x / 24 - 450}px, ${y / 24 - 600}px, 0)`
+const laptopTransition = (x, y) =>
+  `translate3d(${x / 18 - 600}px, ${y / 18 - 330}px, 0)`
 
 const useStyles = makeStyles(theme => ({
-  root: {
+  platform: {
+    position: 'absolute',
+    borderRadius: '5px',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'no-repeat',
+    willChange: 'transform',
+    width: '600px',
+    height: '300px',
+    backgroundImage: `url(${CYBER_PLATFORM})`,
+    filter: 'drop-shadow(-2px -4px 20px rgba(0,0,100,0.7))',
+  },
+
+  programmer: {
+    position: 'absolute',
+    borderRadius: '5px',
+    backgroundSize: 'contain',
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'no-repeat',
+    willChange: 'transform',
+    width: '400px',
+    height: '700px',
+    backgroundImage: `url(${CYBER_PERSON})`,
+    filter: 'drop-shadow(4px 11px 10px rgba(0,0,0,0.6))',
+  },
+
+  laptop: {
+    position: 'absolute',
+    borderRadius: '5px',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'no-repeat',
+    willChange: 'transform',
+    width: '227px',
+    height: '250px',
+    backgroundImage: `url(${CYBER_LAPTOP})`,
+    filter: 'drop-shadow(5px 5px 16px black)',
+  },
+
+  animatedCoding: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    height: '100vh',
     overflow: 'hidden',
-    background: '#f0f0f0',
+    zIndex: 0,
   },
 
-  card1: {
+  animatedCodingWrapper: {
     position: 'absolute',
-    borderRadius: '5px',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
-    backgroundRepeat: 'no-repeat',
-    willChange: 'transform',
-    minWidth: '20ch',
-    minHeight: '20ch',
-    width: '25vw',
-    height: '25vw',
-    backgroundImage: `url(${ISLAND_ICON})`,
-  },
-
-  card2: {
-    position: 'absolute',
-    borderRadius: '5px',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
-    backgroundRepeat: 'no-repeat',
-    willChange: 'transform',
-    width: '15ch',
-    height: '15ch',
-    backgroundImage: `url(${SUN_ICON})`,
-  },
-
-  card3: {
-    position: 'absolute',
-    borderRadius: '5px',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
-    backgroundRepeat: 'no-repeat',
-    willChange: 'transform',
-    opacity: 0.9,
-    width: '15ch',
-    height: '15ch',
-    backgroundImage: `url(${CLOUDS_ICON})`,
-  },
-
-  card4: {
-    position: 'absolute',
-    borderRadius: '5px',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center center',
-    backgroundRepeat: 'no-repeat',
-    willChange: 'transform',
-    width: '15ch',
-    height: '15ch',
-    backgroundImage: `url(${PROGRAMMER_ICON})`,
-  },
-
-  container: {
-    width: '100%',
-    height: '100%',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    bottom: 0,
+    right: 0,
   },
 }))
 
@@ -91,25 +82,23 @@ const AnimatedCoding = () => {
 
   return (
     <div
-      className={classes.container}
+      className={classes.animatedCoding}
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
     >
-      <animated.div
-        className={classes.card1}
-        style={{ transform: props.xy.interpolate(trans1) }}
-      />
-      <animated.div
-        className={classes.card2}
-        style={{ transform: props.xy.interpolate(trans2) }}
-      />
-      <animated.div
-        className={classes.card3}
-        style={{ transform: props.xy.interpolate(trans3) }}
-      />
-      <animated.div
-        className={classes.card4}
-        style={{ transform: props.xy.interpolate(trans4) }}
-      />
+      <div className={classes.animatedCodingWrapper}>
+        <animated.div
+          className={classes.platform}
+          style={{ transform: props.xy.interpolate(platformTransition) }}
+        />
+        <animated.div
+          className={classes.laptop}
+          style={{ transform: props.xy.interpolate(laptopTransition) }}
+        />
+        <animated.div
+          className={classes.programmer}
+          style={{ transform: props.xy.interpolate(programmerTransition) }}
+        />
+      </div>
     </div>
   )
 }

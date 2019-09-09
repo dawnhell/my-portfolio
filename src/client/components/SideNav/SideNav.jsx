@@ -7,7 +7,7 @@ import GlitchNavLink from '../GlitchNavLink/GlitchNavLink'
 
 import ROUTES from '../../constants/routes'
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   sideNav: {
     alignItems: 'center',
     display: 'flex',
@@ -15,15 +15,15 @@ const useStyles = makeStyles(theme => ({
     justifyContent: 'center',
     flexDirection: 'column',
 
-    // '& $navLink': {
-    //   transition: 'transform .4s, box-shadow .4s',
-    //   transform: 'rotate(-35deg)',
-    //   transformOrigin: 'bottom left',
-    // },
-    //
-    // '&:hover $navLink': {
-    //   transform: 'rotate(0)',
-    // },
+    '& .sideNavLink': {
+      transition: 'transform .4s, box-shadow .4s',
+      transform: 'rotate(-15deg)',
+      transformOrigin: 'bottom left',
+    },
+
+    '&:hover .sideNavLink': {
+      transform: 'rotate(0)',
+    },
   },
 }))
 
@@ -33,7 +33,9 @@ const SideNav = ({}) => {
   return (
     <nav className={classes.sideNav}>
       {ROUTES.pages.map(page => (
-        <GlitchNavLink key={page.title} to={page.path} title={page.title} />
+        <div className="sideNavLink">
+          <GlitchNavLink key={page.title} to={page.path} title={page.title} />
+        </div>
       ))}
     </nav>
   )

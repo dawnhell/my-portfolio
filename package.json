@@ -1,7 +1,7 @@
 {
   "name": "my-portfolio",
   "version": "1.0.0",
-  "description": "",
+  "description": "Portfolio of Uladzislau Klachkou",
   "license": "Uladzislau Klachkou",
   "scripts": {
     "postinstall": "if [ $NPM_CONFIG_PRODUCTION ]; then yarn run build; fi",

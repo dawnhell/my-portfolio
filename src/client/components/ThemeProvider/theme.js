@@ -43,13 +43,17 @@ const THEME = createMuiTheme({
     error: {
       main: orange[400],
     },
-    red: red[600],
+    red: '#ef5350',
+    indigo: '#512da8',
+    lime: '#d4e157',
+    lightRed: '#e57373',
     pink: pink[400],
     yellow: yellow[500],
     eggshell: lime[100],
-    oldLace: 'rgba(255, 245, 225, 0.8)',
+    oldLace: 'rgba(255, 245, 225, 0.3)',
     orange: orange[400],
-    blue: 'rgba(3, 3, 79, 0.8)',
+    blue: 'rgba(3, 3, 79, 0.5)',
+    lightGrey: '#757575',
   },
   typography: {
     fontFamily: [

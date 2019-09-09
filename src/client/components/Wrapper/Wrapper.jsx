@@ -8,7 +8,8 @@ import Box from '@material-ui/core/Box'
 import SideNav from '../SideNav/SideNav'
 import Routes from '../Routes/Routes'
 
-import BACKGROUND_IMG from '../../assets/4 abstract background by freeject.net.jpg'
+import BACKGROUND_IMG from '../../assets/1 abstract background by freeject.net.jpg'
+import NOISE_BACKGROUND_IMG from '../../assets/4 noise texture by freeject.net.jpg'
 
 const useStyles = makeStyles(theme => ({
   contentWrapper: {
@@ -16,8 +17,20 @@ const useStyles = makeStyles(theme => ({
     backgroundPosition: 'center center',
     backgroundSize: 'cover',
   },
+  '$contentWrapper::after': {
+    content: '',
+    display: 'block',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    backgroundImage: `url(${NOISE_BACKGROUND_IMG})`,
+    width: '100%',
+    height: '100%',
+    opacity: '0.2',
+    zIndex: '-1',
+  },
   content: {
-    // backgroundColor: theme.palette.oldLace,
+    backgroundColor: theme.palette.blue,
   },
 }))
 
