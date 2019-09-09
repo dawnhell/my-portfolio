@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
 
     '& h4': {
       display: 'inline-block',
-      fontFamily: '"Vast Shadow", cursive;',
+      fontFamily: '"Press Start 2P", cursive;',
       fontSize: '2rem',
       fontWeight: 'normal',
       margin: '1rem 0',
@@ -53,26 +53,33 @@ const useStyles = makeStyles(theme => ({
         0 -1px 0 #fff,
         0 1px 0 #2e2e2e,
         0 2px 0 #2c2c2c,
-        0 3px 0 #2a2a2a
+        0 3px 0 #2a2a2a,
+        0 4px 0 #282828,
+        0 5px 0 #262626,
+        0 6px 0 #242424
       `,
     },
 
     '& p': {
       display: 'inline-block',
-      fontFamily: '"Vast Shadow", cursive;',
+      fontFamily: '"Press Start 2P", cursive;',
       fontSize: '2rem',
       margin: '1rem 0',
       textShadow: `
         0 -1px 0 #fff,
         0 1px 0 #2e2e2e,
         0 2px 0 #2c2c2c,
-        0 3px 0 #2a2a2a
+        0 3px 0 #2a2a2a,
+        0 4px 0 #282828,
+        0 5px 0 #262626,
+        0 6px 0 #242424
       `,
     },
 
     '& span': {
       fontFamily: '"Bungee Shade", cursive;',
-      fontSize: '2rem',
+      fontSize: '2.5rem',
+      verticalAlign: 'bottom',
     },
 
     '& .Cursor': {
@@ -81,6 +88,7 @@ const useStyles = makeStyles(theme => ({
       animationTimingFunction: 'linear',
       animationIterationCount: 'infinite',
       fontSize: '3rem',
+      verticalAlign: 'text-bottom',
     },
   },
 
@@ -136,7 +144,6 @@ const Home = ({}) => {
           and I'm a{' '}
           <span className={classes.neonGlow}>Front-End developer</span>
         </p>
-        <br />
       </Typist>
 
       <AnimatedCoding />
