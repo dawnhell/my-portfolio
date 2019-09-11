@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
 
     '& h2': {
       display: 'inline-block',
-      fontFamily: '"Press Start 2P", cursive',
+      fontFamily: "'Press Start 2P', cursive",
       fontSize: '3rem',
       margin: '2rem 0',
       textShadow: `
@@ -45,7 +45,7 @@ const useStyles = makeStyles(theme => ({
 
     '& h4': {
       display: 'inline-block',
-      fontFamily: '"Press Start 2P", cursive;',
+      fontFamily: "'Press Start 2P', cursive",
       fontSize: '2rem',
       fontWeight: 'normal',
       margin: '1rem 0',
@@ -62,7 +62,7 @@ const useStyles = makeStyles(theme => ({
 
     '& p': {
       display: 'inline-block',
-      fontFamily: '"Press Start 2P", cursive;',
+      fontFamily: "'Press Start 2P', cursive",
       fontSize: '2rem',
       margin: '1rem 0',
       textShadow: `

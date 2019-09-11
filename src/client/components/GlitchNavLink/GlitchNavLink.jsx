@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
   navLink: {
     display: 'block',
     color: theme.palette.text.primary,
-    fontFamily: "'Fjalla One', sans-serif",
+    fontFamily: "'Blanka', sans-serif",
     fontSize: '2.5rem',
     margin: '0.75rem 0',
     textAlign: 'center',

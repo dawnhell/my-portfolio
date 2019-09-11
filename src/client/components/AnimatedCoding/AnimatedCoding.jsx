@@ -3,9 +3,9 @@ import { useSpring, animated } from 'react-spring'
 
 import { makeStyles } from '@material-ui/core'
 
-import CYBER_PLATFORM from '../../assets/platform.png'
-import CYBER_PERSON from '../../assets/person.png'
-import CYBER_LAPTOP from '../../assets/laptop.png'
+import CYBER_PLATFORM from '../../assets/images/platform.png'
+import CYBER_PERSON from '../../assets/images/person.png'
+import CYBER_LAPTOP from '../../assets/images/laptop.png'
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2]
 const platformTransition = (x, y) =>
@@ -76,7 +76,7 @@ const useStyles = makeStyles(theme => ({
 const AnimatedCoding = () => {
   const [props, set] = useSpring(() => ({
     xy: [0, 0],
-    config: { mass: 10, tension: 550, friction: 140 },
+    config: { mass: 10, tension: 400, friction: 150 },
   }))
   const classes = useStyles()
 
