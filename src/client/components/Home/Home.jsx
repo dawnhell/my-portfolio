@@ -16,6 +16,8 @@ const useStyles = makeStyles(theme => ({
   typist: {
     color: theme.palette.oldLace,
     margin: '0 10rem',
+    zIndex: 1,
+    letterSpacing: '-1px',
 
     '& h2': {
       display: 'inline-block',

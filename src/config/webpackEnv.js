@@ -2,7 +2,7 @@ import webpack from 'webpack'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
+import TerserPlugin from 'terser-webpack-plugin'
 import CopyPlugin from 'copy-webpack-plugin'
 
 import config from './index'
@@ -16,7 +16,7 @@ export const development = {
   ],
   output: {
     filename: '[name].js',
-    publicPath: config.cdnUrl,
+    // publicPath: config.cdnUrl,
     path: config.paths.dist,
   },
   module: {
@@ -50,8 +50,14 @@ export const development = {
         ],
       },
       {
-        test: /\.(gif|png|jpe?g|svg)$/i,
+        test: /\.(gif|png|jpe?g)$/i,
         use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'assets/',
+            },
+          },
           {
             loader: 'image-webpack-loader',
             options: {
@@ -105,8 +111,8 @@ export const production = {
   mode: 'production',
   entry: [`${config.paths.client}/index.js`],
   output: {
-    path: config.paths.assets,
-    publicPath: config.cdnUrl,
+    path: config.paths.dist,
+    // publicPath: config.cdnUrl,
     filename: '[name].[chunkHash].js',
     sourceMapFilename: '[name].[chunkHash].map',
   },
@@ -135,8 +141,9 @@ export const production = {
               {
                 loader: 'css-loader',
                 options: {
-                  modules: true,
-                  localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                  modules: {
+                    localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                  },
                   importLoaders: 1,
                 },
               },
@@ -159,9 +166,14 @@ export const production = {
         ],
       },
       {
-        test: /\.(gif|png|jpe?g|svg)$/i,
+        test: /\.(gif|png|jpe?g)$/i,
         use: [
-          'file-loader',
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'assets/',
+            },
+          },
           {
             loader: 'image-webpack-loader',
             options: {
@@ -173,6 +185,7 @@ export const production = {
                 enabled: false,
               },
               pngquant: {
+                enabled: false,
                 quality: [0.65, 0.9],
                 speed: 4,
               },
@@ -190,14 +203,8 @@ export const production = {
   },
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
-        sourceMap: true,
-        uglifyOptions: {
-          ecma: 8,
-          output: {
-            comments: false,
-          },
-        },
+      new TerserPlugin({
+        parallel: true,
       }),
       new OptimizeCSSAssetsPlugin({}),
     ],

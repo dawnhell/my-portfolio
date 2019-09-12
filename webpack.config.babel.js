@@ -6,6 +6,8 @@ const envConfig = config.env.match(/development|test/)
   ? development
   : production
 
+console.log(envConfig)
+
 export default merge({}, envConfig, {
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -16,11 +18,6 @@ export default merge({}, envConfig, {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',
-      },
-      {
-        test: /\.(png|jpg|svg)$/,
-        exclude: /node_modules/,
-        loaders: 'file-loader',
       },
     ],
   },

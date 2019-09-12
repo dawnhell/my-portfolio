@@ -33,8 +33,8 @@ const SideNav = ({}) => {
   return (
     <nav className={classes.sideNav}>
       {ROUTES.pages.map(page => (
-        <div className="sideNavLink">
-          <GlitchNavLink key={page.title} to={page.path} title={page.title} />
+        <div className="sideNavLink" key={page.title}>
+          <GlitchNavLink to={page.path} title={page.title} />
         </div>
       ))}
     </nav>

@@ -3,6 +3,7 @@ import express from 'express'
 import helmet from 'helmet'
 import bodyParser from 'body-parser'
 import morgan from 'morgan'
+import compression from 'compression'
 
 import config from './config'
 import logger from './lib/logger'
@@ -13,6 +14,7 @@ app.use(morgan('tiny'))
 app.use(helmet())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(compression())
 
 if (config.env.match(/development|test/)) {
   const webpack = require('webpack')
