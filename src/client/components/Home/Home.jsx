@@ -148,7 +148,7 @@ const Home = ({}) => {
         </p>
       </Typist>
 
-      <AnimatedCoding />
+      {/*<AnimatedCoding />*/}
     </Box>
   )
 }

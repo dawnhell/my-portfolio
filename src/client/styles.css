@@ -1,0 +1,5 @@
+@font-face {
+  font-family: "Blanka";
+  src: url("./assets/fonts/Blanka/Blanka-Regular.otf") format("opentype"),
+    url("./assets/fonts/Blanka/Blanka-Regular.ttf") format("truetype");
+}
